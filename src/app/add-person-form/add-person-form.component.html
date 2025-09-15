@@ -1,0 +1,57 @@
+<div class="form-container">
+  <h1 class="form-title">Report a Missing Person</h1>
+  <p class="form-subtitle">Please provide as much information as possible. Every detail can help.</p>
+
+  <form [formGroup]="form" (ngSubmit)="addPerson()" class="report-form">
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="name">Full Name</label>
+        <input id="name" formControlName="name" placeholder="e.g., Jane Doe" />
+      </div>
+
+      <div class="form-field">
+        <label for="age">Age</label>
+        <input id="age" formControlName="age" type="number" placeholder="e.g., 25" />
+      </div>
+
+      <div class="form-field">
+        <label for="gender">Gender</label>
+        <input id="gender" formControlName="gender" placeholder="e.g., Female" />
+      </div>
+
+      <div class="form-field">
+        <label for="lastSeenDate">Date Last Seen</label>
+        <input id="lastSeenDate" formControlName="lastSeenDate" type="date" />
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="lastSeenLocation">Last Seen Location</label>
+      <input id="lastSeenLocation" formControlName="lastSeenLocation" placeholder="e.g., City, State" />
+    </div>
+
+    <div class="form-field">
+      <label for="circumstances">Circumstances of Disappearance</label>
+      <textarea id="circumstances" formControlName="circumstances" rows="4" placeholder="Provide any relevant details..."></textarea>
+    </div>
+
+    <div class="form-field">
+        <label for="photoUrl">Photo URL</label>
+        <input id="photoUrl" formControlName="photoUrl" placeholder="e.g., https://example.com/photo.jpg" />
+      </div>
+
+    <div class="form-field">
+      <label for="contactName">Contact Name</label>
+      <input id="contactName" formControlName="contactName" placeholder="e.g., John Doe" />
+    </div>
+    <div class="form-field">
+      <label for="contactPhone">Contact Phone</label>
+      <input id="contactPhone" formControlName="contactPhone" placeholder="e.g., +267 7123 4567" />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="!form.valid" class="submit-btn">Submit Report</button>
+      <button type="button" routerLink="/" class="cancel-btn">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,51 +1,130 @@
+:host {
+  display: block;
+  background-color: #f9f9f9;
+  padding: 2rem 0;
+}
+
 .detail-container {
-  max-width: 600px;
-  margin: 2rem auto;
-  padding: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  overflow: hidden;
 }
 
-.detail-card {
-  display: flex;
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   gap: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-.detail-img {
-  width: 200px;
-  height: 200px;
+.image-container {
+  position: relative;
+}
+
+.main-photo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+.status-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(201, 48, 44, 0.85);
+  color: #fff;
+  text-align: center;
+  padding: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.status-banner.status-located {
+  background: rgba(76, 174, 76, 0.85);
+}
+
+.info-container {
+  padding: 2rem;
+}
+
+.person-name {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #222;
+  margin: 0 0 1.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.info-item {
+  background: #f1f3f5;
+  padding: 0.75rem 1rem;
   border-radius: 8px;
 }
 
-.detail-body {
-  flex: 1;
+.info-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin-bottom: 0.25rem;
 }
 
-.detail-title {
-  margin-top: 0;
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
 }
 
-.button-group {
+.section {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #444;
+  border-bottom: 2px solid #e9ecef;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.contact-section {
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.back-button-container {
   margin-top: 2rem;
-  display: flex;
-  gap: 1rem;
 }
 
-.btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.back-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
 }
 
-.btn-success {
-  background-color: #28a745;
-  color: white;
+.back-link:hover {
+  color: #0056b3;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
-  color: white;
+.not-found {
+  padding: 4rem;
+  text-align: center;
 }

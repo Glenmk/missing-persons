@@ -1,20 +1,51 @@
 <div class="detail-container">
   @if (person(); as p) {
-  <div class="detail-card">
-    <img [src]="p.photoUrl" [alt]="p.name" class="detail-img" />
-    <div class="detail-body">
-      <h2 class="detail-title">{{ p.name }}</h2>
-      <p class="detail-text">Age: {{ p.age }}</p>
-      <p class="detail-text">Last Seen: {{ p.lastSeenLocation }}</p>
-      <div class="button-group">
-        <button class="btn btn-success" (click)="markAsFound()">
-          Mark as Found
-        </button>
-        <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    <div class="detail-layout">
+      <div class="image-container">
+        <img [src]="p.photoUrl" [alt]="'Photo of ' + p.name" class="main-photo">
+        <div class="status-banner">
+          {{ p.status }}
+        </div>
+      </div>
+
+      <div class="info-container">
+        <h1 class="person-name">{{ p.name }}</h1>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">Age</span>
+            <span class="info-value">{{ p.age }} years</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Gender</span>
+            <span class="info-value">{{ p.gender }}</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Last Known Location</h2>
+          <p>{{ p.lastSeenLocation }} on {{ p.lastSeenDate | date: 'fullDate' }}</p>
+        </div>
+
+        <div class="section">
+          <h2 class="section-title">Circumstances</h2>
+          <p>{{ p.circumstances }}</p>
+        </div>
+
+        <div class="contact-section">
+          <h2 class="section-title">Have Information?</h2>
+          <p>If you have any information, please contact {{ p.contact.name }} at <strong>{{ p.contact.phone }}</strong>.</p>
+        </div>
+        
+        <div class="back-button-container">
+          <a routerLink="/" class="back-link">&larr; Back to All Cases</a>
+        </div>
       </div>
     </div>
-  </div>
   } @else {
-  <p>Person not found.</p>
+    <div class="not-found">
+      <p>Person not found. Please check the ID and try again.</p>
+      <a routerLink="/" class="back-link">&larr; Go Back</a>
+    </div>
   }
 </div>

@@ -1,10 +1,14 @@
-<a [routerLink]="['/person', person().id]">
-  <div class="card">
-    <img [src]="person().photoUrl" [alt]="person().name" class="card-img" />
+<a [routerLink]="['/person', person().id]" class="card-link" [attr.aria-label]="'View details for ' + person().name">
+  <div class="card" [class.status-located]="person().status === 'Located'">
+    <div class="card-status-badge">{{ person().status }}</div>
+    <img [src]="person().photoUrl" [alt]="'Photo of ' + person().name" />
     <div class="card-body">
-      <h3 class="card-title">{{ person().name }}</h3>
-      <p class="card-text">Age: {{ person().age }}</p>
-      <p class="card-text">Last Seen: {{ person().lastSeenLocation }}</p>
+      <h3>{{ person().name }}</h3>
+      <div>
+        <p><strong>Age:</strong> {{ person().age }} | <strong>Gender:</strong> {{ person().gender }}</p>
+        <p><strong>Last Seen:</strong> {{ person().lastSeenLocation }}</p>
+        <p><strong>Date:</strong> {{ person().lastSeenDate | date: 'mediumDate' }}</p>
+      </div>
     </div>
   </div>
 </a>

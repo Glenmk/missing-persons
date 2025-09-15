@@ -8,6 +8,7 @@ import { MissingPersonCardComponent } from '../missing-person-card/missing-perso
   templateUrl: './missing-person-list.component.html',
   styleUrls: ['./missing-person-list.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
   imports: [RouterLink, MissingPersonCardComponent],
 })
 export class MissingPersonListComponent {
