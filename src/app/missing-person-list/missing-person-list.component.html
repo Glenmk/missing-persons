@@ -1,0 +1,12 @@
+<div class="list-container">
+  <header class="list-header">
+    <h1>Missing Persons</h1>
+    <a routerLink="/add" class="btn btn-primary">Add Missing Person</a>
+  </header>
+
+  <div class="card-grid">
+    @for (person of missingPeople(); track person.id) {
+    <app-missing-person-card [person]="person"></app-missing-person-card>
+    }
+  </div>
+</div>

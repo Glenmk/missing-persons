@@ -1,0 +1,5 @@
+<div class="list-container">
+  @for (person of missingPeople(); track person.id) {
+    <app-missing-person-card [person]="person" />
+  }
+</div>

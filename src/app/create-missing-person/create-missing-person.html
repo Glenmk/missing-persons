@@ -1,0 +1,45 @@
+<div class="form-container">
+  <form [formGroup]="form" (ngSubmit)="addPerson()">
+    @switch (step()) {
+      @case (1) {
+        <div class="form-step">
+          <label for="name">What is the missing person's name?</label>
+          <input id="name" formControlName="name" type="text" placeholder="Full Name">
+          <div class="navigation-buttons">
+            <button type="button" class="btn" (click)="nextStep()" [disabled]="form.get('name')?.invalid">Next</button>
+          </div>
+        </div>
+      }
+      @case (2) {
+        <div class="form-step">
+          <label for="age">How old are they?</label>
+          <input id="age" formControlName="age" type="number" placeholder="Age">
+          <div class="navigation-buttons">
+            <button type="button" class="btn btn-secondary" (click)="prevStep()">Back</button>
+            <button type="button" class="btn" (click)="nextStep()" [disabled]="form.get('age')?.invalid">Next</button>
+          </div>
+        </div>
+      }
+      @case (3) {
+        <div class="form-step">
+          <label for="lastSeenLocation">Where were they last seen?</label>
+          <input id="lastSeenLocation" formControlName="lastSeenLocation" type="text" placeholder="Last Seen Location">
+          <div class="navigation-buttons">
+            <button type="button" class="btn btn-secondary" (click)="prevStep()">Back</button>
+            <button type="button" class="btn" (click)="nextStep()" [disabled]="form.get('lastSeenLocation')?.invalid">Next</button>
+          </div>
+        </div>
+      }
+      @case (4) {
+        <div class="form-step">
+          <label for="photoUrl">Please provide a URL for a photo.</label>
+          <input id="photoUrl" formControlName="photoUrl" type="text" placeholder="Photo URL">
+          <div class="navigation-buttons">
+            <button type="button" class="btn btn-secondary" (click)="prevStep()">Back</button>
+            <button type="submit" class="btn" [disabled]="form.invalid">Submit</button>
+          </div>
+        </div>
+      }
+    }
+  </form>
+</div>

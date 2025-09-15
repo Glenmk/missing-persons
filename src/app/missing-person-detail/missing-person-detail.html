@@ -1,0 +1,18 @@
+<div class="detail-container">
+  @if (person(); as p) {
+    <div class="photo-container">
+      <img [src]="p.photoUrl" [alt]="p.name" class="detail-photo">
+    </div>
+    <div class="info-container">
+      <h1>{{ p.name }}</h1>
+      <p>Age: <span class="accent">{{ p.age }}</span></p>
+      <p>Last Seen Location: <span class="accent">{{ p.lastSeenLocation }}</span></p>
+      <div class="actions">
+        <button class="btn" (click)="markAsFound()">Mark as Found</button>
+        <button class="btn btn-secondary" (click)="goBack()">Back to List</button>
+      </div>
+    </div>
+  } @else {
+    <p>Person not found.</p>
+  }
+</div>

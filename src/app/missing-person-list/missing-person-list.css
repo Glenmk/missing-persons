@@ -1,0 +1,23 @@
+.list-container {
+  column-count: 1;
+  column-gap: 20px;
+  padding: 20px;
+}
+
+@media (min-width: 600px) {
+  .list-container {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 900px) {
+  .list-container {
+    column-count: 3;
+  }
+}
+
+@media (min-width: 1200px) {
+  .list-container {
+    column-count: 4;
+  }
+}

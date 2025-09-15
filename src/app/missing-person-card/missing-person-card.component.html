@@ -1,0 +1,10 @@
+<a [routerLink]="['/person', person().id]">
+  <div class="card">
+    <img [src]="person().photoUrl" [alt]="person().name" class="card-img" />
+    <div class="card-body">
+      <h3 class="card-title">{{ person().name }}</h3>
+      <p class="card-text">Age: {{ person().age }}</p>
+      <p class="card-text">Last Seen: {{ person().lastSeenLocation }}</p>
+    </div>
+  </div>
+</a>

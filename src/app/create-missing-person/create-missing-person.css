@@ -1,0 +1,63 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* Adjust based on header height */
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+}
+
+label {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"] {
+  background-color: var(--card-background);
+  color: var(--text-light);
+  border: 1px solid var(--accent-blue);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.navigation-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  min-width: 120px;
+}
+
+.btn-secondary {
+  border-color: #a0a0a0;
+  color: #a0a0a0;
+}
+
+.btn-secondary:hover {
+  background-color: #a0a0a0;
+  color: var(--background-dark);
+}
+
+.btn:disabled {
+  border-color: #555;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background-color: transparent;
+}

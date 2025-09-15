@@ -1,0 +1,12 @@
+<a [routerLink]="['/detail', person().id]">
+  <div class="card">
+    <div class="card-image-container">
+      <img [src]="person().photoUrl" [alt]="person().name" class="card-image">
+    </div>
+    <div class="card-content">
+      <h3 class="card-name">{{ person().name }}</h3>
+      <p class="card-details">Age: <span class="accent">{{ person().age }}</span></p>
+      <p class="card-details">Last Seen: <span class="accent">{{ person().lastSeenLocation }}</span></p>
+    </div>
+  </div>
+</a>
