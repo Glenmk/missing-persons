@@ -54,6 +54,32 @@ ng e2e
 
 Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
+## Troubleshooting
+
+### Repository Not Showing on GitHub?
+
+If you have a folder/repository (like "realmoffice") that appears in VS Code but isn't visible on GitHub:
+
+**Quick Diagnosis:**
+```bash
+# Run the diagnostic script
+./diagnose-repo-issue.sh realmoffice
+```
+
+**Common Cause:** The folder is likely a nested Git repository (has its own `.git` folder).
+
+**Quick Fix:**
+```bash
+cd realmoffice
+rm -rf .git
+cd ..
+git add realmoffice
+git commit -m "Add realmoffice directory"
+git push
+```
+
+📖 **For detailed troubleshooting steps, see:** [TROUBLESHOOTING_REALMOFFICE.md](./TROUBLESHOOTING_REALMOFFICE.md)
+
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
