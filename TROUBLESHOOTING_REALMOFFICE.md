@@ -27,8 +27,8 @@ git status
 # Navigate to realmoffice
 cd realmoffice
 
-# Remove the .git folder (BACKUP FIRST if you need commit history)
-rm -rf .git
+# BACKUP: Move .git folder instead of deleting (SAFER!)
+mv .git ../backup-realmoffice-git
 
 # Go back to parent directory
 cd ..

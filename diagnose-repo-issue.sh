@@ -27,7 +27,11 @@ echo ""
 
 # 2. Check git status
 echo "2. Git Status:"
-git status
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    git status
+else
+    echo "Not in a Git repository (this is OK if checking a standalone repo)"
+fi
 echo ""
 
 # 3. Check for nested .git directories
@@ -65,12 +69,16 @@ echo ""
 
 # 5. Check if tracked by git
 echo "5. Checking if $REPO_NAME is tracked by Git:"
-TRACKED=$(git ls-files | grep "$REPO_NAME")
-if [ -z "$TRACKED" ]; then
-    echo -e "${RED}✗ '$REPO_NAME' is NOT tracked by Git${NC}"
+if git rev-parse --git-dir > /dev/null 2>&1; then
+    TRACKED=$(git ls-files | grep "$REPO_NAME" || true)
+    if [ -z "$TRACKED" ]; then
+        echo -e "${RED}✗ '$REPO_NAME' is NOT tracked by Git${NC}"
+    else
+        echo -e "${GREEN}✓ '$REPO_NAME' is tracked:${NC}"
+        echo "$TRACKED"
+    fi
 else
-    echo -e "${GREEN}✓ '$REPO_NAME' is tracked:${NC}"
-    echo "$TRACKED"
+    echo "Not in a Git repository - skipping"
 fi
 echo ""
 

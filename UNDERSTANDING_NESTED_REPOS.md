@@ -52,7 +52,8 @@ When a folder has its own `.git` directory, it becomes an independent Git reposi
 **Commands:**
 ```bash
 cd realmoffice
-rm -rf .git
+# SAFER: Move .git instead of deleting it
+mv .git ../backup-realmoffice-git
 cd ..
 git add realmoffice
 git commit -m "Add realmoffice"
@@ -167,7 +168,8 @@ mkdir realmoffice && cd realmoffice && git init
 **Fix:**
 ```bash
 cd realmoffice
-rm -rf .git
+# SAFER: Move .git instead of deleting it
+mv .git ../backup-realmoffice-git
 cd ..
 git add realmoffice
 git commit -m "Add realmoffice as regular folder"

@@ -108,7 +108,13 @@ If the above steps don't work:
 ## Common Questions
 
 **Q: Will I lose my commit history?**
-A: If you remove the `.git` folder from a nested repository, yes. Save it first with `git log > commits.txt` if you need it.
+A: If you remove the `.git` folder from a nested repository, yes. **Always backup first:**
+```bash
+cd realmoffice
+git log --all --decorate --oneline --graph > ../realmoffice-commits.txt
+mv .git ../backup-realmoffice-git  # Safer than rm -rf
+```
+You can restore the .git folder later if needed.
 
 **Q: Should realmoffice be a separate repository or part of the parent?**
 A: It depends on your project structure:
