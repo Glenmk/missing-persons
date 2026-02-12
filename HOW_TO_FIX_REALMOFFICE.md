@@ -31,11 +31,11 @@ If the diagnostic shows "realmoffice has its own .git directory":
 # Navigate to the realmoffice directory
 cd realmoffice
 
-# BACKUP: Save your commit history if needed
-git log > ../realmoffice-commits.txt
+# BACKUP: Save your commit history (safer and more compact format)
+git log --all --decorate --oneline --graph > ../realmoffice-commits.txt
 
-# Remove the nested .git folder
-rm -rf .git
+# SAFER: Move .git instead of deleting it
+mv .git ../backup-realmoffice-git
 
 # Go back to parent directory
 cd ..
