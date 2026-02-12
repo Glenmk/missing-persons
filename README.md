@@ -56,17 +56,18 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 ## Troubleshooting
 
-### Repository Not Showing on GitHub?
+### 🚨 Repository Not Showing on GitHub? (e.g., "realmoffice")
 
-If you have a folder/repository (like "realmoffice") that appears in VS Code but isn't visible on GitHub:
+If you have a folder/repository that appears in VS Code but isn't visible on GitHub, we've created tools to help you fix it!
 
-**Quick Diagnosis:**
+**📋 Step 1: Diagnose the Issue**
 ```bash
 # Run the diagnostic script
 ./diagnose-repo-issue.sh realmoffice
 ```
 
-**Common Cause:** The folder is likely a nested Git repository (has its own `.git` folder).
+**🔧 Step 2: Apply the Fix**
+The most common issue is a **nested Git repository** (folder has its own `.git` directory).
 
 **Quick Fix:**
 ```bash
@@ -78,7 +79,10 @@ git commit -m "Add realmoffice directory"
 git push
 ```
 
-📖 **For detailed troubleshooting steps, see:** [TROUBLESHOOTING_REALMOFFICE.md](./TROUBLESHOOTING_REALMOFFICE.md)
+**📚 Resources:**
+- **Quick Guide:** [HOW_TO_FIX_REALMOFFICE.md](./HOW_TO_FIX_REALMOFFICE.md) - Step-by-step instructions
+- **Full Troubleshooting:** [TROUBLESHOOTING_REALMOFFICE.md](./TROUBLESHOOTING_REALMOFFICE.md) - All possible causes and solutions
+- **Diagnostic Script:** [diagnose-repo-issue.sh](./diagnose-repo-issue.sh) - Automated problem detection
 
 ## Additional Resources
 
